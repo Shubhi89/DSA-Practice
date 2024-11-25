@@ -1,4 +1,4 @@
-public class binary_to_decimal {
+public class binary_to_decimal { // convert binary number to decimal number
     public static int binToDec(int n) {
         int pow = 0; int dec = 0;
         while(n>0) {
