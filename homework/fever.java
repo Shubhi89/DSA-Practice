@@ -1,5 +1,5 @@
 package homework;
-
+// this program is to calculate fever
 public class fever {
     public static void main(String args[]) {
         double temp = 91.5;
