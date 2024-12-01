@@ -11,6 +11,7 @@ public class sample {
 class Pen{
     String color;
     int tip;
+    String model;
 
     String getColor() {
         return this.color;
