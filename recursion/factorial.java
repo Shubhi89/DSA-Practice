@@ -1,6 +1,6 @@
 package recursion;
 
-public class factorial {
+public class factorial { // time = O(n) , space = O(n)
     public static int fac(int n) {
         if(n == 0 || n==1) {
             return 1;
