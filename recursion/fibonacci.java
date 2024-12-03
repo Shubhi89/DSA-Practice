@@ -1,7 +1,7 @@
 package recursion;
 
 public class fibonacci {
-    public static int fib(int n) {
+    public static int fib(int n) { // time = O(2^n) , space = O(n)
         if(n == 1) {
             return n;
         } else if(n == 0) {
