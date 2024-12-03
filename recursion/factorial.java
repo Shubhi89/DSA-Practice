@@ -5,7 +5,6 @@ public class factorial {
         if(n == 0 || n==1) {
             return 1;
         }
-        int fb = fac(n-1);
         int f = n*fac(n-1);
         return f;
         
