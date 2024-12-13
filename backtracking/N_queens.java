@@ -1,10 +1,12 @@
 package backtracking;
 
 public class N_queens {
+    static int count=0;
     public static void nQueens(char board[][] , int row) { // time = O(n!)
         // base case
         if(row == board.length) {
             printBoard(board);
+            count++;
             return;
         }
         // column loop
@@ -47,7 +49,7 @@ public class N_queens {
         }
     }
     public static void main(String[] args) {
-        int n = 4;
+        int n = 5;
         char board[][] = new char[n][n];
         for(int i=0;i<n;i++) {
             for(int j=0;j<n;j++) {
@@ -55,5 +57,7 @@ public class N_queens {
             }
         }
         nQueens(board,0);
+        System.out.println();
+        System.out.println("total number of ways to solve n queens = "+ count);
     }
 }
