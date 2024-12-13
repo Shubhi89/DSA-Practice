@@ -17,3 +17,7 @@ public class grid_ways {
         System.out.println(gridWays(0,0,n,m));
     }
 }
+ // a trick to solve with time complexity O(n+m)
+ // formula = ((n-1 + m-1)!)
+ //         -------------------
+ //           ((n-1)!*(m-1)!)
