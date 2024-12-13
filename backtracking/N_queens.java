@@ -1,7 +1,7 @@
 package backtracking;
 
 public class N_queens {
-    public static void nQueens(char board[][] , int row) {
+    public static void nQueens(char board[][] , int row) { // time = O(n!)
         // base case
         if(row == board.length) {
             printBoard(board);
