@@ -50,6 +50,23 @@ public class linkedList {
         }
         System.out.println("null");
     }
+
+    public void add(int idx , int data) {
+        if(idx == 0) {
+            addFirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i=0;
+
+        while(i< idx-1) {
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
     public static void main(String[] args) {
         linkedList ll = new linkedList();
         ll.print();
@@ -60,6 +77,7 @@ public class linkedList {
         ll.addLast(4);
         ll.print();
         ll.addLast(5);
+        ll.add(3, 9);
         ll.print();
     }
 }    
