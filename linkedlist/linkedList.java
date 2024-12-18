@@ -143,6 +143,20 @@ public class linkedList {
     public int recursiveSearch(int key) {
         return helper(head,key);
     }
+
+    public void reverse() { // O(n)
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while(curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
     public static void main(String[] args) {
         linkedList ll = new linkedList();
         ll.print();
@@ -158,5 +172,7 @@ public class linkedList {
         System.out.println(ll.removeFirst());
         System.out.println(ll.removeLast());
         System.out.println(ll.search(9));
+        ll.reverse();
+        ll.print();
     }
 }    
