@@ -109,6 +109,20 @@ public class linkedList {
         size--;
         return val;
     }
+
+    public int search(int key) { // O(n)
+        Node temp = head;
+        int i = 0;
+
+        while(temp != null) {
+            if(temp.data == key) {
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         linkedList ll = new linkedList();
         ll.print();
@@ -123,5 +137,6 @@ public class linkedList {
         ll.print();
         System.out.println(ll.removeFirst());
         System.out.println(ll.removeLast());
+        System.out.println(ll.search(9));
     }
 }    
