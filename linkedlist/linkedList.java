@@ -324,6 +324,19 @@ public class linkedList {
         // merge
         return merge(newLeft , newRight);
     }
+
+    public void zigZag() {
+        // find mid
+        Node slow = head;
+        Node fast = head.next;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+        // reverse 2nd half
+        
+    }
     public static void main(String[] args) {
         linkedList ll = new linkedList();
         ll.addFirst(1);
