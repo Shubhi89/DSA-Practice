@@ -335,7 +335,32 @@ public class linkedList {
         }
         Node mid = slow;
         // reverse 2nd half
-        
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+
+        while(curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node left = head;
+        Node right = prev;
+        Node nextL , nextR;
+
+        // zig-zag merge
+        while(left != null && right != null) {
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+            left = nextL;
+            right = nextR;
+        }
+
     }
     public static void main(String[] args) {
         linkedList ll = new linkedList();
@@ -344,6 +369,6 @@ public class linkedList {
         ll.addLast(4);
         ll.addLast(5);
         ll.add(3, 9);
-        ll.print();
+        ll.print(); // 2->1->4->9->5-> null
     }
 }    
