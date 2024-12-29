@@ -1,7 +1,7 @@
 package greedyalgo;
 import java.util.*;
 public class activitySelection {
-    public static void main(String[] args) { // O(n)
+    public static void main(String[] args) { // O(n logn)
         int start[] = {1,3,0,5,8,5};
         int end[] = {2,4,6,7,9,9};
 
@@ -12,7 +12,7 @@ public class activitySelection {
             activities[i][1] = start[i];
             activities[i][2] = end[i];
         }
-        // lambda function -> shortform
+        // lambda function -> shortform (O(log n))
         Arrays.sort(activities , Comparator.comparingDouble(o -> o[2])); // to sort a 2D array (2 is col no.)
 
         // end time basis sorted
