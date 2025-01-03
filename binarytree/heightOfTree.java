@@ -43,6 +43,7 @@ public class heightOfTree {
 
     }
 
+    // approach 1
     public static int diameterOfTree(Node root) { // O(n^2)
         if(root == null) {
             return 0;
@@ -54,6 +55,29 @@ public class heightOfTree {
         int rh = height(root.right);
         int selfDiameter = lh+rh+1;
         return Math.max(selfDiameter , Math.max(ld , rd));
+    }
+    // approach 2
+
+    static class Info{
+        int diamtr;
+        int height;
+
+        public Info(int diamtr , int height) {
+            this.diamtr = diamtr;
+            this.height = height;
+        }
+    }
+    public static Info diameter(Node root) { // O(n)
+        if(root == null) {
+            return new Info(0,0);
+        }
+        Info left = diameter(root.left);
+        Info right = diameter(root.right);
+
+        int diamtr = Math.max(Math.max(left.diamtr, right.diamtr) , left.height+ right.height+1);
+        int height = Math.max(left.height,right.height) + 1;
+
+        return new Info(diamtr, height);
     }
     public static void main(String[] args) {
         /*
@@ -76,5 +100,6 @@ public class heightOfTree {
         System.out.println(countNodes(root));
         System.out.println(sumOfNodes(root));
         System.out.println(diameterOfTree(root));
+        System.out.println(diameter(root).diamtr);
     }
 }
