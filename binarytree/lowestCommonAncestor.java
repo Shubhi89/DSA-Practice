@@ -94,5 +94,6 @@ public class lowestCommonAncestor {
         int n1 = 4 , n2 = 5;
         System.out.println(lca(root, n1, n2).data);
         System.out.println(lca2(root, n1, n2).data);
+        
     }
 }
