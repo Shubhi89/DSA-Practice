@@ -94,9 +94,9 @@ public class buildTree {
             System.out.print(root.data+" ");
             printInRange(root.right, k1, k2);
         } else if(root.data < k1) {
-            printInRange(root.left, k1, k2);
-        } else {
             printInRange(root.right, k1, k2);
+        } else {
+            printInRange(root.left, k1, k2);
         }
     }
     public static void main(String[] args) {
@@ -118,6 +118,6 @@ public class buildTree {
         root = delete(root, 5);
         inorder(root);
         System.out.println();
-        printInRange(root, 5, 10);
+        printInRange(root, 1, 10);
     }
 }
