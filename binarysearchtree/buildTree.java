@@ -1,5 +1,5 @@
 package binarysearchtree;
-
+import java.util.*;
 public class buildTree {
     static class Node {
         int data;
@@ -99,8 +99,28 @@ public class buildTree {
             printInRange(root.left, k1, k2);
         }
     }
+
+    public static void printPath(ArrayList<Integer> paths) {
+        for(int i=0;i<paths.size();i++) {
+            System.out.print(paths.get(i)+" ");
+        }
+        System.out.println("null");
+    }
+
+    public static void rootToLeafPath(Node root, ArrayList<Integer> paths) {
+        if(root == null) {
+            return;
+        }
+        paths.add(root.data);
+        if(root.left == null && root.right == null) {
+            printPath(paths);
+        }
+        rootToLeafPath(root.left, paths);
+        rootToLeafPath(root.right, paths);
+        paths.remove(paths.size() -1);
+    }
     public static void main(String[] args) {
-        int values[] = {8,5,3,1,4,6,10,11,14};
+        int values[] = {8,5,3,6,10,11,14};
         Node root = null;
 
         for(int i=0;i<values.length;i++) {
@@ -119,5 +139,7 @@ public class buildTree {
         inorder(root);
         System.out.println();
         printInRange(root, 1, 10);
+
+        rootToLeafPath(root, new ArrayList<>());
     }
 }
