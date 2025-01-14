@@ -135,6 +135,28 @@ public class buildTree {
 
         return isValidBST(root.left, min, root) && isValidBST(root.right,root, max);
     }
+
+    public static Node mirror(Node root) {
+        if(root == null) {
+            return null;
+        }
+
+        Node leftMirror = mirror(root.left);
+        Node rightMirror = mirror(root.right);
+
+        root.left = rightMirror;
+        root.right = leftMirror;
+        return root;
+    }
+
+    public static void preOrder(Node root) {
+        if(root == null) {
+            return;
+        }
+        System.out.print(root.data+" ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
     public static void main(String[] args) {
         int values[] = {8,5,3,6,10,11,14};
         Node root = null;
@@ -163,5 +185,7 @@ public class buildTree {
         } else {
             System.out.println("invalid");
         }
+        root = mirror(root);
+        preOrder(root);
     }
 }
