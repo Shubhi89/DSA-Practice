@@ -24,7 +24,7 @@ public class heapsort {
         }
     }
 
-    public static void heapSort(int arr[]) {
+    public static void heapSort(int arr[]) { //O(n logn)
         // step1 = build maxheap
         int n = arr.length;
         for(int i=n/2; i >= 0;i--) {
