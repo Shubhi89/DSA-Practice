@@ -40,14 +40,37 @@ public class create {
         return curr.endOfWord == true;
     }
 
-    public static void main(String[] args) {
-        String words[] = { "the", "a", "there", "their", "any", "thee" };
+    public static boolean wordBreak(String key) {
+        if(key.length() == 0) {
+            return true;
+        }
+        for(int i=1;i<=key.length();i++) {
+            if(search(key.substring(0, i)) && wordBreak(key.substring(i))) {
+                return true;
+            }
+            
+        }
+        return false;
+    }
 
-        for(int i=0;i<words.length;i++) {
-            insert(words[i]);
+    public static void main(String[] args) {
+        // String words[] = { "the", "a", "there", "their", "any", "thee" };
+
+        // for(int i=0;i<words.length;i++) {
+        //     insert(words[i]);
+        // }
+
+        // System.out.println(search("thee"));
+        // System.out.println(search("thor"));
+
+        // word break problem
+        String arr[] = {"i" , "like" , "sam" , "samsung" , "mobile" , "ice"};
+
+        for(int i=0;i<arr.length;i++) {
+            insert(arr[i]);
         }
 
-        System.out.println(search("thee"));
-        System.out.println(search("thor"));
+        String key = "ilikesamsung";
+        System.out.println(wordBreak(key));
     }
 }
