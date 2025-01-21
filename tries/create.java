@@ -53,6 +53,20 @@ public class create {
         return false;
     }
 
+    // startsWith problem
+    public static boolean startsWith(String prefix) { //O(L)
+        Node curr = root;
+
+        for(int i=0;i<prefix.length();i++) {
+            int idx = prefix.charAt(i) - 'a';
+            if(curr.children[idx] == null) {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         // String words[] = { "the", "a", "there", "their", "any", "thee" };
 
@@ -64,13 +78,23 @@ public class create {
         // System.out.println(search("thor"));
 
         // word break problem
-        String arr[] = {"i" , "like" , "sam" , "samsung" , "mobile" , "ice"};
+        // String arr[] = {"i" , "like" , "sam" , "samsung" , "mobile" , "ice"};
 
-        for(int i=0;i<arr.length;i++) {
-            insert(arr[i]);
+        // for(int i=0;i<arr.length;i++) {
+        //     insert(arr[i]);
+        // }
+
+        // String key = "ilikesamsung";
+        // System.out.println(wordBreak(key));
+
+        // startsWith problem
+        String words[] = {"apple" , "app" ,"mango" ,"man" , "woman"};
+        String prefix = "app";
+
+        for(int i=0;i<words.length;i++) {
+            insert(words[i]);
         }
 
-        String key = "ilikesamsung";
-        System.out.println(wordBreak(key));
+        System.out.println(startsWith(prefix));
     }
 }
