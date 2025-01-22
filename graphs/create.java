@@ -58,6 +58,18 @@ public class create {
             }
         }
     }
+
+    public static void DFS(ArrayList<Edge>[] graph , int curr , boolean visited[]) { //O(V+E) v = vertex , e = edges
+        System.out.print(curr+" ");
+        visited[curr] = true;
+
+        for(int i=0;i<graph[curr].size();i++) {
+            Edge e = graph[curr].get(i);
+            if(!visited[e.dest]) {
+                DFS(graph, e.dest, visited);
+            }
+        }
+    }
     public static void main(String[] args) {
         /*
                       (5)
@@ -85,5 +97,7 @@ public class create {
         createGraph(graph);
 
         BFS(graph);
+        System.out.println();
+        DFS(graph, 0, new boolean[vertex]);
     }
 }
