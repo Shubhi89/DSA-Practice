@@ -70,6 +70,22 @@ public class create {
             }
         }
     }
+
+    // has path ques
+    public static boolean hasPath(ArrayList<Edge>[] graph , int src , int dest , boolean visited[] ) {
+        if(src == dest) {
+            return true;
+        }
+
+        visited[src] = true;
+        for(int i=0;i<graph[src].size();i++) {
+            Edge e = graph[src].get(i); // e.dest = neighbour
+            if(!visited[e.dest] && hasPath(graph, e.dest, dest, visited)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         /*
                       (5)
@@ -99,5 +115,7 @@ public class create {
         BFS(graph);
         System.out.println();
         DFS(graph, 0, new boolean[vertex]);
+        System.out.println();
+        System.out.println(hasPath(graph, 0, 4, new boolean[vertex]));
     }
 }
