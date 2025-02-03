@@ -36,6 +36,36 @@ public class knapsack {
             return dp[n][W];
         }
     }
+
+    public static int knapsackQuesTabulation(int val[] , int wt[] , int W) {
+        int n = val.length;
+        int dp[][] = new int[n+1][W+1];
+
+        for(int i=0;i<dp.length;i++) {
+            dp[i][0] = 0;
+        }
+        for(int j=0;j<dp[0].length;j++) {
+            dp[0][j] = 0;
+        }
+
+        for(int i=1;i<n+1;i++) {
+            for(int j=1;j<W+1;j++) {
+                int value = val[i-1];
+                int weight = wt[i-1]; 
+
+                if(weight <= j) { // valid
+                    int incProfit = value + dp[i-1][j-weight];
+                    int excProfit = dp[i-1][j];
+
+                    dp[i][j] = Math.max(incProfit , excProfit);
+                } else { // invalid
+                    int excProfit = dp[i-1][j];
+                    dp[i][j] = excProfit;
+                }
+            }
+        }
+        return dp[n][W];
+    }
     public static void main(String[] args) {
         int val[] = {5,14,10,45,30};
         int wt[] = {2,5,1,3,4};
@@ -49,5 +79,6 @@ public class knapsack {
 
         System.out.println(knapsackQues(val, wt, W, val.length));
         System.out.println(knapsackQuesMemoization(val, wt, W, val.length, dp));
+        System.out.println(knapsackQuesTabulation(val, wt, W));
     }
 } 
